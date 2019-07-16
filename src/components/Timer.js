@@ -31,7 +31,7 @@ class Timer extends React.Component {
     return (
       <div className="timer animated fadeInDown">
         <span>
-          {min < 10 ? `0${min}` : `${min}`} :{" "}
+          {min < 10 ? `0${min}` : `${min}`} :{"  "}
           {sec < 10 ? `0${sec}` : `${sec}`}
         </span>
       </div>
