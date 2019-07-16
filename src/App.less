@@ -1,0 +1,214 @@
+@main-bg-color: #ffa502;
+@app-primary-color: #ffa502;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+  background-color: @main-bg-color; 
+  overflow: hidden;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: @main-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App {
+  position: relative;
+  width: 60vw;
+  height: 80vh;
+  background-color: @app-primary-color;
+  border-radius: 3px;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    content: "";
+    width: 100%;
+    height: 85%;
+    z-index: -1;
+    transform: translateX(-20px) translateY(-50%);
+    border-radius: 3px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3);
+    background-color: @app-primary-color;
+  }
+  &::after {
+    transform: translateX(20px) translateY(-50%);
+  }
+}
+.valign_wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start {
+  text-align: center;
+
+  img {
+    margin-bottom: 30px;
+  }
+}
+
+img {
+  display: block;
+}
+.btn-light {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #fff;
+  color: @app-primary-color;
+  padding: 12px 40px;
+  border-radius: 27px;
+  border: 2px solid transparent;
+  transition: 0.5s all;
+  font-size: 17px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: @app-primary-color;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.score {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #fff;
+  color: @app-primary-color;
+  padding: 12px 40px;
+  border-radius: 27px;
+}
+
+.quiz {
+  color: #fff;
+  font-weight: 400;
+  padding: 30px;
+  &_question {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      font-weight: 400;
+      flex-basis: 80%;
+    }
+    &_count {
+      display: flex;
+      flex-basis: 20%;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      // background-color: rgba(0, 0, 0, 0.1);
+      font-size: 25px;
+      letter-spacing: 2px;
+      span {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 80px;
+        padding: 20px 0;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: darken(@main-bg-color, 10%);
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: @main-bg-color;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  padding-top: 50px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  color: @app-primary-color;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+
+
+}
+
